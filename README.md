@@ -46,7 +46,7 @@ The ros2_control framework allows us to implement hardware abstraction through i
 - **Command interface:** These are the interfaces we can control such as different motor efforts (velocity/position/torque)
 - **State interface:** These are the interfaces we only observe or monitor such as sensor reading.
 ![Diagram5](https://github.com/user-attachments/assets/70d87404-2bec-4804-8eef-183cc64a08e2)
-![Diagram7](https://github.com/user-attachments/assets/4e5d4a28-0ab1-41fb-a4e3-46cd240853e2)
+
 The benefits of such abstraction are:
 
 - Same code works with different robots as the robots are recognized through only command and state interfaces
@@ -61,6 +61,7 @@ Two very important components for robot abstractions are:
 
 Let’s see a more detailed diagram of this framework when we swap our robot arm with any other type of robot.
 ![Diagram6](https://github.com/user-attachments/assets/8d842534-255c-450e-a15b-1ee40f08b1bf)
+![Diagram7](https://github.com/user-attachments/assets/4e5d4a28-0ab1-41fb-a4e3-46cd240853e2)
 We should know that each hardware interface is created as a plugin. The plugins register themselves with the pluginlib. The controller manager uses pluginlib to find and load appropriate plugins. These plugins can be loaded dynamically meaning they can be loaded at runtime (while the program is running). The beauty of using pluginlib in ros2_control is that it makes the system incredibly flexible while maintaining robustness. We can add support for new robots by creating new plugins, we can easily update or debug features without rebuilding the entire system, we can switch between real and simulated hardware. All without changing the application code!
 
 So, ros2_control is basically like using the same standard gamepad console to play all kinds of games! No need to change your console for different games!
