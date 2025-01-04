@@ -1,6 +1,8 @@
 # ros2_control_explained
 **To ros2_control or NOT TO ros2_control?**
 ![LinkediN](https://github.com/user-attachments/assets/71c82381-b620-4359-bd49-dc7f866604d4)
+
+
 The infamous ros2_control is a framework (real time robot control)in ROS2 that facilitates the management and control of a robot’s hardware in a standardized and modular way. The purpose is to simplify integrating new hardware into ROS2 applications by separating controllers (software side) from different systems, actuators and sensors (hardware side). We can think of it as a bridge that connects the software and hardware by translating high-level commands (like robot motion control commands) into low-level motor signals. It also reads feedback from the robot hardware and sends it back to the software.
 ![Diagram1](https://github.com/user-attachments/assets/ea479bb6-e2e2-4fd9-ad8c-1d3b28e3ac10)
 Suppose we have a robotic arm with 3 revolute joints. And we want to:
