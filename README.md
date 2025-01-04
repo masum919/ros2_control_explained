@@ -15,7 +15,7 @@ Each joint of the robot arm is driven by a motor, but different motors require d
 
 Also, motors can be controlled via serial or CAN bus for controlling speed, position, torque etc.
 
-Without ros2_control, we’d have to
+**Without ros2_control**, we’d have to
 
 - Understand the protocol for each motor type and handle their differences
 - Write low-level software to send commands to each motor
@@ -23,7 +23,7 @@ Without ros2_control, we’d have to
 - We’d need to write codes to read data from different sensors and handle them appropriately. Then we’d have to sync the sensor data with motor control commands
 - We’d need to handle feedback loop for each joint. The control loops must run independently for each joint, read current effort value, compare it to the target effort value and then calculate and apply the required motor effort. This means managing multiple threads or processes. And we must synchronize the joints if they need to move together (to follow a trajectory). Handling and debugging multi-threaded control loops could quickly turn into a complicated and a royal pain.
 
-With ros2_control, we do not need to worry about most of the above.
+**With ros2_control**, we do not need to worry about most of the above.
 
 - The hardware-interface handles communications with motors and sensors
 - Controllers like joint_trajectory_controller handle PID control for us. Also, sensor feedback is integrated into the control loop
@@ -40,12 +40,12 @@ The building blocks for controlling our robot arm are:
 
 The diagram below shows how different components of ros2_control framework work together in to move our robotic arm
 ![Diagram4](https://github.com/user-attachments/assets/97cabf61-aa31-4085-9949-937a8c58928a)
-Now let’s say we want to swap out the 3 joint robot arm with a two wheel differential drive robot. It means we want to change the hardware. Do we write whole new software from scratch to control our new hardware? NO.! HECK NO!
+***Now let’s say we want to swap out the 3 joint robot arm with a two wheel differential drive robot. It means we want to change the hardware. Do we write whole new software from scratch to control our new hardware? NO.! HECK NO!***
 
 The ros2_control framework allows us to implement hardware abstraction through its hardware interface. This hardware_interface talks to the robot hardware (does not matter how the robot looks like) by representing the hardware through two interfaces.
 
-- **Command interface:** These are the interfaces we can control such as different motor efforts (velocity/position/torque)
-- **State interface:** These are the interfaces we only observe or monitor such as sensor reading.
+- **Command interface:** These are the interfaces we can **control** such as different motor efforts (velocity/position/torque)
+- **State interface:** These are the interfaces we only **observe** or **monitor** such as sensor reading.
 ![Diagram5](https://github.com/user-attachments/assets/70d87404-2bec-4804-8eef-183cc64a08e2)
 
 The benefits of such abstraction are:
