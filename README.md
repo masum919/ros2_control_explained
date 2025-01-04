@@ -20,9 +20,9 @@ Each joint of the robot arm is driven by a motor, but different motors require d
 
 Also, motors can be controlled via serial or CAN bus for controlling speed, position, torque etc.
 
-**Without ros2_control**, we’d have to
+**Without ros2_control**
 
-- Understand the protocol for each motor type and handle their differences
+- We'd have to understand the protocol for each motor type and handle their differences
 - Write low-level software to send commands to each motor
 - Write custom control logic to move each joint accurately based on high level commands. And this typically involves- calculating the required motor effort (velocity/torque) and adjusting the motor effort based on a feedback loop (like a PID controller). And, these motor effort values need conversion based on motor type- PWM for DC motors, step pulse frequency for stepper motors, CAN position command for servo motors etc.
 - We’d need to write codes to read data from different sensors and handle them appropriately. Then we’d have to sync the sensor data with motor control commands
@@ -65,7 +65,7 @@ Two very important components for robot abstractions are:
 - **URDF:** This is the detailed blueprint of the robot. It describes how many joints and their types, and how many links exist and how they are connected. It also describes what sensors and actuators are present
 - **YAML configuration:** This is like a settings menu for the robot. It defines what controllers are available, controller parameters, control loop rates etc.
 
-Let’s see a more detailed diagram of this framework when we swap our robot arm with any other type of robot.
+Let’s see a more detailed diagram of this framework when we swap our robot arm with any other type of robot (both real and simulation).
 ![Diagram6](https://github.com/user-attachments/assets/8d842534-255c-450e-a15b-1ee40f08b1bf)
 ![Diagram7](https://github.com/user-attachments/assets/4e5d4a28-0ab1-41fb-a4e3-46cd240853e2)
 We should know that each hardware interface is created as a plugin. The plugins register themselves with the pluginlib. The controller manager uses pluginlib to find and load appropriate plugins. These plugins can be loaded dynamically meaning they can be loaded at runtime (while the program is running). The beauty of using pluginlib in ros2_control is that it makes the system incredibly flexible while maintaining robustness. We can add support for new robots by creating new plugins, we can easily update or debug features without rebuilding the entire system, we can switch between real and simulated hardware. All without changing the application code!
