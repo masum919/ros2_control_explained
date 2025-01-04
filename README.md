@@ -69,3 +69,6 @@ So, ros2_control is basically like using the same standard gamepad console to pl
 
 **--Written by Masum**  
 *Date: January 4, 2025*
+
+[Click here to see an example of a custom hardware interface](https://github.com/masum919/ros2_control_custom_hardware_interface)
+
