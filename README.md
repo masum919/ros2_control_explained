@@ -1,5 +1,5 @@
 # ros2_control_explained
-**To ros2_control or NOT TO ros2_control?**
+***To ros2_control or NOT TO ros2_control?***
 ![LinkediN](https://github.com/user-attachments/assets/71c82381-b620-4359-bd49-dc7f866604d4)
 
 
