@@ -65,3 +65,6 @@ Let’s see a more detailed diagram of this framework when we swap our robot arm
 We should know that each hardware interface is created as a plugin. The plugins register themselves with the pluginlib. The controller manager uses pluginlib to find and load appropriate plugins. These plugins can be loaded dynamically meaning they can be loaded at runtime (while the program is running). The beauty of using pluginlib in ros2_control is that it makes the system incredibly flexible while maintaining robustness. We can add support for new robots by creating new plugins, we can easily update or debug features without rebuilding the entire system, we can switch between real and simulated hardware. All without changing the application code!
 
 So, ros2_control is basically like using the same standard gamepad console to play all kinds of games! No need to change your console for different games!
+
+**--Written by Masum**  
+*Date: January 4, 2025*
