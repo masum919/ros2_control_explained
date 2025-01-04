@@ -6,6 +6,7 @@ Suppose we have a robotic arm with 3 revolute joints. And we want to:
 - Move the arm to a specific position (like moving the end-effector to a desired position)
 - Use feedback from the arm joints to improve the position accuracy of the end-effector
 ![Diagram2](https://github.com/user-attachments/assets/0c5d162b-8457-4311-a778-feee45828f6f)
+
 Each joint of the robot arm is driven by a motor, but different motors require different methods for communications. Example:
 
 - DC motors: controlled using PWM and possibly a motor driver chip
